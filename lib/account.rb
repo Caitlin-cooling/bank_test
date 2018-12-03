@@ -13,15 +13,16 @@ class Account
     end
   end
 
-  def desposit(amount)
-    update_balance(amount)
-    time = Time.now.strftime('%d/%m/%Y')
+  def deposit(amount)
+    deposit_balance(amount)
     entry = "#{time} || #{decimals(amount)} || || #{decimals(@balance)}"
     @history << entry
   end
 
   def withdraw(amount)
-    @history << '10/01/2012 || || 500.00 || 1500.00'
+    withdraw_balance(amount)
+    entry = "#{time} || || #{decimals(amount)} || #{decimals(@balance)}"
+    @history << entry
   end
 
   private
@@ -30,7 +31,15 @@ class Account
     format('%.2f', amount)
   end
 
-  def update_balance(amount)
+  def deposit_balance(amount)
     @balance += amount
+  end
+
+  def withdraw_balance(amount)
+    @balance -= amount
+  end
+
+  def time
+    Time.now.strftime('%d/%m/%Y')
   end
 end
