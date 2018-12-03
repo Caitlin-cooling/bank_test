@@ -3,6 +3,7 @@ class Account
   attr_reader :history
 
   def initialize
+    @balance = 0
     @history = ['Date || Credit || Debit || Balance']
   end
 
@@ -12,7 +13,20 @@ class Account
     end
   end
 
-  def desposit(amount, date)
-    @history << '10-01-2012 || 1000.00 || || 1000.00'
+  def desposit(amount)
+    update_balance(amount)
+    time = Time.now.strftime('%d/%m/%Y')
+    entry = "#{time} || #{decimals(amount)} || || #{decimals(@balance)}"
+    @history << entry
+  end
+
+  private
+
+  def decimals(amount)
+    format('%.2f', amount)
+  end
+
+  def update_balance(amount)
+    @balance += amount
   end
 end
