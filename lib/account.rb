@@ -8,13 +8,13 @@ class Account
   end
 
   def deposit(amount)
-    deposit_balance(amount)
+    credit_balance(amount)
     entry = "#{time} || #{decimals(amount)} || || #{decimals(@balance)}\n"
     @history << entry
   end
 
   def withdraw(amount)
-    withdraw_balance(amount)
+    debit_balance(amount)
     entry = "#{time} || || #{decimals(amount)} || #{decimals(@balance)}\n"
     @history << entry
   end
@@ -25,11 +25,11 @@ class Account
     format('%.2f', amount)
   end
 
-  def deposit_balance(amount)
+  def credit_balance(amount)
     @balance += amount
   end
 
-  def withdraw_balance(amount)
+  def debit_balance(amount)
     @balance -= amount
   end
 
