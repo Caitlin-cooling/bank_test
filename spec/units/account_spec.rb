@@ -10,14 +10,14 @@ describe 'Account' do
 
   describe '#history' do
     it 'begins with headers' do
-      expect(account.history).to eq ['Date || Credit || Debit || Balance']
+      expect(account.show_history).to eq "Date || Credit || Debit || Balance\n"
     end
   end
 
   describe '#desposit' do
     it 'adds money to the users account' do
       account.deposit(1000.00)
-      expect(account.history).to eq ['Date || Credit || Debit || Balance', '10/01/2012 || 1000.00 || || 1000.00']
+      expect(account.show_history).to eq "Date || Credit || Debit || Balance\n10/01/2012 || 1000.00 || || 1000.00\n"
     end
   end
 
@@ -25,7 +25,7 @@ describe 'Account' do
     it 'adds money to the users account' do
       account.deposit(2000.00)
       account.withdraw(500.00)
-      expect(account.history).to eq ['Date || Credit || Debit || Balance', '10/01/2012 || 2000.00 || || 2000.00', '10/01/2012 || || 500.00 || 1500.00']
+      expect(account.show_history).to eq "Date || Credit || Debit || Balance\n10/01/2012 || || 500.00 || 1500.00\n10/01/2012 || 2000.00 || || 2000.00\n"
     end
   end
 end

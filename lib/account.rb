@@ -1,27 +1,28 @@
 # Account class
 class Account
-  attr_reader :history
 
   def initialize
     @balance = 0
-    @history = ['Date || Credit || Debit || Balance']
+    @history = []
   end
 
   def show_history
-    @history.each do |entry|
-      p entry
+    show = "Date || Credit || Debit || Balance\n"
+    @history.reverse.each do |entry|
+      show += entry
     end
+    show
   end
 
   def deposit(amount)
     deposit_balance(amount)
-    entry = "#{time} || #{decimals(amount)} || || #{decimals(@balance)}"
+    entry = "#{time} || #{decimals(amount)} || || #{decimals(@balance)}\n"
     @history << entry
   end
 
   def withdraw(amount)
     withdraw_balance(amount)
-    entry = "#{time} || || #{decimals(amount)} || #{decimals(@balance)}"
+    entry = "#{time} || || #{decimals(amount)} || #{decimals(@balance)}\n"
     @history << entry
   end
 
