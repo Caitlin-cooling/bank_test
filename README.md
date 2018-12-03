@@ -30,4 +30,4 @@ This app is written in Ruby, uses RSpec for testing and SimpleCov for test cover
 ## My approach to this challenge
 My approach to this challenge was to first diagram the simplest possible scenario that would meet the users requirements, which I then test drove following the red/green/refactor cycle.
 
-Then I refactored the code to ensure single responsibility of classes in an Object Orientated manner.
+Then I refactored the code to ensure single responsibility by creating 2 classes (account and statement) in an Object Orientated manner. These classes interact using dependancy injection.
