@@ -1,6 +1,5 @@
 # Account class
 class Account
-
   def initialize
     @balance = 0
     @history = []
@@ -8,7 +7,7 @@ class Account
 
   def show_history
     show = "Date || Credit || Debit || Balance\n"
-    @history.reverse.each do |entry|
+    @history.reverses_each do |entry|
       show += entry
     end
     show
