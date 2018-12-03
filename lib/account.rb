@@ -1,9 +1,9 @@
+# Account class
 class Account
-
   attr_reader :history
 
   def initialize
-    @history = ["Date || Credit || Debit || Balance"]
+    @history = ['Date || Credit || Debit || Balance']
   end
 
   def show_history

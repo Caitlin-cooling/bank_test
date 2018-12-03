@@ -5,7 +5,7 @@ describe 'Account' do
 
   describe '#history' do
     it 'begins with headers' do
-      expect(account.history).to eq ["Date || Credit || Debit || Balance"]
+      expect(account.history).to eq ['Date || Credit || Debit || Balance']
     end
   end
 end
