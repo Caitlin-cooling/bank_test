@@ -1,14 +1,19 @@
 # Statement class
 class Statement
   def initialize(account)
-    @account = account
+    @transactions = account.history
   end
 
   def view
     text = "Date || Credit || Debit || Balance\n"
-    @account.history.reverse_each do |entry|
-      text += entry
-    end
+    @transactions.reverse_each { |transaction| text += format(transaction) }
     text
+  end
+
+  def format(transaction)
+    "#{transaction[:date]} || " \
+    "#{transaction[:credit]} || " \
+    "#{transaction[:debit]} || " \
+    "#{transaction[:balance]}\n"
   end
 end
