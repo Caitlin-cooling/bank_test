@@ -9,14 +9,16 @@ class Account
 
   def deposit(amount)
     credit_balance(amount)
-    entry = "#{time} || #{decimals(amount)} || || #{decimals(@balance)}\n"
-    @history << entry
+    transaction = { date: time, credit: decimals(amount),\
+                    balance: decimals(@balance) }
+    @history << transaction
   end
 
   def withdraw(amount)
     debit_balance(amount)
-    entry = "#{time} || || #{decimals(amount)} || #{decimals(@balance)}\n"
-    @history << entry
+    transaction = { date: time, debit: decimals(amount),\
+                    balance: decimals(@balance) }
+    @history << transaction
   end
 
   private
