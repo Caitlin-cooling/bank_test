@@ -14,12 +14,12 @@ A simple banking command line app that allows a user to:
 ## Using the app
 
 1. Create a new account `account = Account.new`
-2. Deposit money in to the account `account.deposit(1000)`
+2. Deposit money in to the account `account.deposit(2000)`
 3. Withdraw money from the account `account.withdraw(500)`
 4. Create a new statement, remember to pass in your account `statement = Statement.new(account)`
 5. View the account statement `puts statement.view`
 
-![Alt text](statement.png)
+![Alt text](new_statement.png)
 
 ## How to run the tests
 Tests are written using RSpec. Once you are in the correct directory, run `rspec` from the command line. SimpleCov is set up in the console so you will see a test coverage metric when you run this command.
