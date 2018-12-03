@@ -8,15 +8,15 @@ describe 'Account' do
     allow(Time).to receive(:now).and_return(fake_time)
   end
 
-  describe '#desposit' do
-    it 'adds desposit entry to the account history' do
+  describe '#deposit' do
+    it 'adds deposit entry to the account history' do
       account.deposit(1000.00)
       expect(account.history).to eq ["10/01/2012 || 1000.00 || || 1000.00\n"]
     end
   end
 
   describe '#withdraw' do
-    it 'adds withdraw entry to the account history' do
+    it 'adds withdrawl entry to the account history' do
       account.deposit(2000.00)
       account.withdraw(500.00)
       expect(account.history).to eq ["10/01/2012 || 2000.00 || || 2000.00\n",\
