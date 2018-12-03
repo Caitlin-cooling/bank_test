@@ -1,6 +1,5 @@
 # Account class
 class Account
-
   attr_reader :history
 
   def initialize

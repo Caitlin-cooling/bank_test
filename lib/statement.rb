@@ -5,7 +5,7 @@ class Statement
   end
 
   def view
-    show = "Date || Credit || Debit || Balance "
+    show = 'Date || Credit || Debit || Balance '
     @account.history.reverse_each do |entry|
       show += entry
     end

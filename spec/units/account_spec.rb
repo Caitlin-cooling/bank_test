@@ -11,7 +11,7 @@ describe 'Account' do
   describe '#desposit' do
     it 'adds desposit entry to the account history' do
       account.deposit(1000.00)
-      expect(account.history).to eq ["10/01/2012 || 1000.00 || || 1000.00 "]
+      expect(account.history).to eq ['10/01/2012 || 1000.00 || || 1000.00 ']
     end
   end
 
@@ -19,7 +19,8 @@ describe 'Account' do
     it 'adds withdraw entry to the account history' do
       account.deposit(2000.00)
       account.withdraw(500.00)
-      expect(account.history).to eq ["10/01/2012 || 2000.00 || || 2000.00 ", "10/01/2012 || || 500.00 || 1500.00 "]
+      expect(account.history).to eq ['10/01/2012 || 2000.00 || || 2000.00 ',\
+                                     '10/01/2012 || || 500.00 || 1500.00 ']
     end
   end
 end
