@@ -5,9 +5,9 @@ class Account
     @history = []
   end
 
-  def show_history
+  def print_statement
     show = "Date || Credit || Debit || Balance\n"
-    @history.reverses_each do |entry|
+    @history.reverse_each do |entry|
       show += entry
     end
     show
