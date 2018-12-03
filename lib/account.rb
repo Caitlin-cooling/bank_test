@@ -1,10 +1,14 @@
 class Account
 
-  def history
-    [["Date || Credit || Debit || Balance"]]
+  attr_reader :history
+
+  def initialize
+    @history = ["Date || Credit || Debit || Balance"]
   end
 
   def show_history
-    "Date || Credit || Debit || Balance"
+    @history.each do |entry|
+      return entry
+    end
   end
 end
