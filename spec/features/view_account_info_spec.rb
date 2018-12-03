@@ -10,7 +10,7 @@ describe 'Check account information' do
     allow(Time).to receive(:now).and_return(fake_time)
   end
 
-  it 'statement starts with empty date, credit, debit, balance' do
+  it 'statement starts with required headers' do
     expect(statement.view).to eq "Date || Credit || Debit || Balance\n"
   end
 
