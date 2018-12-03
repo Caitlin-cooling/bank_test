@@ -16,4 +16,10 @@ describe 'Check account information' do
     account.desposit(1000.00)
     expect(account.show_history).to include '10/01/2012 || 1000.00 || || 1000.00'
   end
+
+  it 'shows that a user withdrew money' do
+    account.desposit(2000.00)
+    account.withdraw(500.00)
+    expect(account.show_history).to include '10/01/2012 || || 500.00 || 1500.00'
+  end
 end

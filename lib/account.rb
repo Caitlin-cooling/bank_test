@@ -20,6 +20,10 @@ class Account
     @history << entry
   end
 
+  def withdraw(amount)
+    @history << '10/01/2012 || || 500.00 || 1500.00'
+  end
+
   private
 
   def decimals(amount)

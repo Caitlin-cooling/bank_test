@@ -20,4 +20,12 @@ describe 'Account' do
       expect(account.history).to eq ['Date || Credit || Debit || Balance', '10/01/2012 || 1000.00 || || 1000.00']
     end
   end
+
+  describe '#withdraw' do
+    it 'adds money to the users account' do
+      account.desposit(2000.00)
+      account.withdraw(500.00)
+      expect(account.history).to eq ['Date || Credit || Debit || Balance', '10/01/2012 || 2000.00 || || 2000.00', '10/01/2012 || || 500.00 || 1500.00']
+    end
+  end
 end
