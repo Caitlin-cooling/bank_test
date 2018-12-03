@@ -7,7 +7,7 @@ describe 'Statement' do
 
   describe '#view' do
     it 'shows the account statement' do
-      expect(statement.view).to eq 'Date || Credit || Debit || Balance 10/01/2012 || 1000.00 || || 1000.00'
+      expect(statement.view).to eq "Date || Credit || Debit || Balance\n10/01/2012 || 1000.00 || || 1000.00"
     end
   end
 end

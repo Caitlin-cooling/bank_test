@@ -11,17 +11,17 @@ describe 'Check account information' do
   end
 
   it 'shows empty date, credit, debit, balance' do
-    expect(statement.view).to eq 'Date || Credit || Debit || Balance '
+    expect(statement.view).to eq "Date || Credit || Debit || Balance\n"
   end
 
   it 'shows that a user deposited money' do
     account.deposit(1000.00)
-    expect(statement.view).to eq 'Date || Credit || Debit || Balance 10/01/2012 || 1000.00 || || 1000.00 '
+    expect(statement.view).to eq "Date || Credit || Debit || Balance\n10/01/2012 || 1000.00 || || 1000.00\n"
   end
 
   it 'shows that a user withdrew money' do
     account.deposit(2000.00)
     account.withdraw(500.00)
-    expect(statement.view).to eq 'Date || Credit || Debit || Balance 10/01/2012 || || 500.00 || 1500.00 10/01/2012 || 2000.00 || || 2000.00 '
+    expect(statement.view).to eq "Date || Credit || Debit || Balance\n10/01/2012 || || 500.00 || 1500.00\n10/01/2012 || 2000.00 || || 2000.00\n"
   end
 end

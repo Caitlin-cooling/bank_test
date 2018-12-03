@@ -9,13 +9,13 @@ class Account
 
   def deposit(amount)
     deposit_balance(amount)
-    entry = "#{time} || #{decimals(amount)} || || #{decimals(@balance)} "
+    entry = "#{time} || #{decimals(amount)} || || #{decimals(@balance)}\n"
     @history << entry
   end
 
   def withdraw(amount)
     withdraw_balance(amount)
-    entry = "#{time} || || #{decimals(amount)} || #{decimals(@balance)} "
+    entry = "#{time} || || #{decimals(amount)} || #{decimals(@balance)}\n"
     @history << entry
   end
 
