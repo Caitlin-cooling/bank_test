@@ -8,24 +8,18 @@ describe 'Account' do
     allow(Time).to receive(:now).and_return(fake_time)
   end
 
-  describe '#history' do
-    it 'begins with headers' do
-      expect(account.print_statement).to eq "Date || Credit || Debit || Balance\n"
-    end
-  end
-
   describe '#desposit' do
-    it 'adds money to the users account' do
+    it 'adds desposit entry to the account history' do
       account.deposit(1000.00)
-      expect(account.print_statement).to eq "Date || Credit || Debit || Balance\n10/01/2012 || 1000.00 || || 1000.00\n"
+      expect(account.history).to eq ["10/01/2012 || 1000.00 || || 1000.00 "]
     end
   end
 
   describe '#withdraw' do
-    it 'adds money to the users account' do
+    it 'adds withdraw entry to the account history' do
       account.deposit(2000.00)
       account.withdraw(500.00)
-      expect(account.print_statement).to eq "Date || Credit || Debit || Balance\n10/01/2012 || || 500.00 || 1500.00\n10/01/2012 || 2000.00 || || 2000.00\n"
+      expect(account.history).to eq ["10/01/2012 || 2000.00 || || 2000.00 ", "10/01/2012 || || 500.00 || 1500.00 "]
     end
   end
 end
