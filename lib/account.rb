@@ -7,18 +7,13 @@ class Account
     @history = []
   end
 
-  def deposit(amount)
-    credit_balance(amount)
-    transaction = { date: time, credit: decimals(amount),\
-                    balance: decimals(@balance) }
-    @history << transaction
-  end
-
-  def withdraw(amount)
-    debit_balance(amount)
-    transaction = { date: time, debit: decimals(amount),\
-                    balance: decimals(@balance) }
-    @history << transaction
+  def add(transaction)
+    if transaction.details[:credit]
+      transaction.details[:balance] = "#{decimals(credit_balance(transaction.details[:credit]))}"
+    else
+      transaction.details[:balance] = "#{decimals(debit_balance(transaction.details[:debit]))}"
+    end
+    @history << transaction.details
   end
 
   private
@@ -28,14 +23,10 @@ class Account
   end
 
   def credit_balance(amount)
-    @balance += amount
+    @balance += amount.to_i
   end
 
   def debit_balance(amount)
-    @balance -= amount
-  end
-
-  def time
-    Time.now.strftime('%d/%m/%Y')
+    @balance -= amount.to_i
   end
 end

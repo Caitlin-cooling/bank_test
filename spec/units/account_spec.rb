@@ -1,6 +1,8 @@
 require 'account'
 
 describe 'Account' do
+  let(:deposit) { double(:deposit, details: {date: "10/01/2012", credit: "1000.00"})}
+  let(:withdraw) { double(:withdraw, details: {date: "10/01/2012", debit: "100.00"})}
   let(:account) { Account.new }
 
   before do
@@ -8,18 +10,16 @@ describe 'Account' do
     allow(Time).to receive(:now).and_return(fake_time)
   end
 
-  describe '#deposit' do
+  describe '#add' do
     it 'adds deposit entry to the account history' do
-      account.deposit(1000.00)
+      account.add(deposit)
       expect(account.history).to eq [{date: "10/01/2012", credit: "1000.00", balance: "1000.00"}]
     end
-  end
 
-  describe '#withdraw' do
     it 'adds withdrawl entry to the account history' do
-      account.deposit(2000.00)
-      account.withdraw(500.00)
-      expect(account.history).to eq [{date: "10/01/2012", credit: "2000.00", balance: "2000.00"}, {date: "10/01/2012", debit: "500.00", balance: "1500.00"}]
+      account.add(deposit)
+      account.add(withdraw)
+      expect(account.history).to eq [{date: "10/01/2012", credit: "1000.00", balance: "1000.00"}, {date: "10/01/2012", debit: "100.00", balance: "900.00"}]
     end
   end
 end
