@@ -1,4 +1,4 @@
-require 'transaction'
+require './lib/transaction.rb'
 
 # Withdraw class
 class Withdraw < Transaction
