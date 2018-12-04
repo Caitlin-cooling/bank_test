@@ -9,9 +9,12 @@ describe 'Transaction' do
 
   let(:transaction) { Transaction.new(1000) }
 
-  describe '#new' do
-    it 'has a date' do
-      expect(transaction.details).to eq({date: "10/01/2012"})
+  describe '#date' do
+    it 'stores a date' do
+      expect(transaction.date).to eq "10/01/2012"
+    end
+    it 'stores a balance' do
+      expect(transaction.balance).to eq 0
     end
   end
 end

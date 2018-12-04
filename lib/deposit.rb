@@ -2,8 +2,14 @@ require './lib/transaction.rb'
 
 # Deposit class
 class Deposit < Transaction
+  attr_reader :credit
+
   def initialize(amount)
-    super(amount)
-    @details[:credit] = decimals(amount)
+    super
+    @credit = decimals(amount)
+  end
+
+  def deposit?
+    true
   end
 end

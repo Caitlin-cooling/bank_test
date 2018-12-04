@@ -10,7 +10,15 @@ describe 'Withdraw' do
 
   describe '#new' do
     it 'creates withdraw transaction' do
-      expect(transaction.details).to eq({date: "10/01/2012", debit: "500.00"})
+      expect(transaction.date).to eq "10/01/2012"
+      expect(transaction.debit).to eq "500.00"
+      expect(transaction.balance).to eq 0
+    end
+  end
+
+  describe '#deposit?' do
+    it 'determines that the transaction is not a deposit' do
+      expect(transaction.deposit?).to eq false
     end
   end
 end

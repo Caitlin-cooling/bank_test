@@ -1,9 +1,11 @@
 # Transaction super class
 class Transaction
   include Formatting
-  attr_reader :details
+  attr_reader :date
+  attr_accessor :balance
 
   def initialize(_amount)
-    @details = { date: time }
+    @date = time
+    @balance = 0
   end
 end

@@ -2,8 +2,14 @@ require './lib/transaction.rb'
 
 # Withdraw class
 class Withdraw < Transaction
+  attr_reader :debit
+
   def initialize(amount)
     super
-    @details[:debit] = decimals(amount)
+    @debit = decimals(amount)
+  end
+
+  def deposit?
+    false
   end
 end

@@ -2,30 +2,27 @@ require './lib/formatting.rb'
 
 # Account class
 class Account
-  include Formatting
   attr_reader :history
 
   def initialize
-    @balance = 0
     @history = []
+    @balance = 0
   end
 
   def add(transaction)
-    transaction[:balance] = if transaction[:credit]
-                              decimals(credit_balance(transaction)).to_s
-                            else
-                              decimals(debit_balance(transaction)).to_s
-                            end
+    @transaction = transaction
+    update_balance
     @history << transaction
   end
 
   private
-
-  def credit_balance(transaction)
-    @balance += transaction[:credit].to_i
-  end
-
-  def debit_balance(transaction)
-    @balance -= transaction[:debit].to_i
+  def update_balance
+    if @transaction.deposit?
+      @balance += @transaction.credit.to_i
+      @transaction.balance = @balance
+    else
+      @balance -= @transaction.debit.to_i
+      @transaction.balance = @balance
+    end
   end
 end

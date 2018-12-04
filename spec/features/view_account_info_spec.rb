@@ -19,13 +19,13 @@ describe 'Check account information' do
   end
 
   it 'statement shows that a user deposited money' do
-    account.add(deposit.details)
-    expect(statement.view).to eq "Date || Credit || Debit || Balance\n10/01/2012 || 2000.00 ||  || 2000.00\n"
+    account.add(deposit)
+    expect(statement.view).to eq "Date || Credit || Debit || Balance\n10/01/2012 || 2000.00 || || 2000.00\n"
   end
 
   it 'statement shows that a user withdrew money' do
-    account.add(deposit.details)
-    account.add(withdraw.details)
-    expect(statement.view).to eq "Date || Credit || Debit || Balance\n10/01/2012 ||  || 500.00 || 1500.00\n10/01/2012 || 2000.00 ||  || 2000.00\n"
+    account.add(deposit)
+    account.add(withdraw)
+    expect(statement.view).to eq "Date || Credit || Debit || Balance\n10/01/2012 || || 500.00 || 1500.00\n10/01/2012 || 2000.00 || || 2000.00\n"
   end
 end
