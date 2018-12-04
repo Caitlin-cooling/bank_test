@@ -8,12 +8,12 @@ class Account
   end
 
   def add(transaction)
-    if transaction.details[:credit]
-      transaction.details[:balance] = "#{decimals(credit_balance(transaction.details[:credit]))}"
+    if transaction[:credit]
+      transaction[:balance] = "#{decimals(credit_balance(transaction))}"
     else
-      transaction.details[:balance] = "#{decimals(debit_balance(transaction.details[:debit]))}"
+      transaction[:balance] = "#{decimals(debit_balance(transaction))}"
     end
-    @history << transaction.details
+    @history << transaction
   end
 
   private
@@ -22,11 +22,11 @@ class Account
     format('%.2f', amount)
   end
 
-  def credit_balance(amount)
-    @balance += amount.to_i
+  def credit_balance(transaction)
+    @balance += transaction[:credit].to_i
   end
 
-  def debit_balance(amount)
-    @balance -= amount.to_i
+  def debit_balance(transaction)
+    @balance -= transaction[:debit].to_i
   end
 end

@@ -12,13 +12,13 @@ describe 'Account' do
 
   describe '#add' do
     it 'adds deposit entry to the account history' do
-      account.add(deposit)
+      account.add(deposit.details)
       expect(account.history).to eq [{date: "10/01/2012", credit: "1000.00", balance: "1000.00"}]
     end
 
     it 'adds withdrawl entry to the account history' do
-      account.add(deposit)
-      account.add(withdraw)
+      account.add(deposit.details)
+      account.add(withdraw.details)
       expect(account.history).to eq [{date: "10/01/2012", credit: "1000.00", balance: "1000.00"}, {date: "10/01/2012", debit: "100.00", balance: "900.00"}]
     end
   end
