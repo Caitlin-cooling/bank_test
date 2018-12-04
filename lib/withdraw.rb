@@ -1,10 +1,9 @@
-# Withdraw class
-class Withdraw
-  include Formatting
-  attr_reader :details
+require 'transaction'
 
+# Withdraw class
+class Withdraw < Transaction
   def initialize(amount)
-    @amount = amount
-    @details = { date: time, debit: decimals(amount) }
+    super
+    @details[:debit] = decimals(amount)
   end
 end

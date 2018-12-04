@@ -1,10 +1,9 @@
-# Deposit class
-class Deposit
-  include Formatting
-  attr_reader :details
+require './lib/transaction.rb'
 
+# Deposit class
+class Deposit < Transaction
   def initialize(amount)
-    @amount = amount
-    @details = { date: time, credit: decimals(amount) }
+    super(amount)
+    @details[:credit] = decimals(amount)
   end
 end
