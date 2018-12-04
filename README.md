@@ -9,13 +9,13 @@ A simple banking command line app that allows a user to:
 1. Clone this repo git clone `https://github.com/Caitlin-cooling/bank_test`
 2. Change in to the directory `cd bank_test`
 3. Open `irb`
-4. Require the account and statement files: `./lib/account.rb` and `./lib/statement.rb`
+4. Require the account and statement files: `./lib/account.rb`, `./lib/statement.rb`, `./lib/deposit.rb`, and `./lib/withdraw.rb` 
 
 ## Using the app
 
 1. Create a new account `account = Account.new`
-2. Deposit money in to the account `account.deposit(2000)`
-3. Withdraw money from the account `account.withdraw(500)`
+2. Deposit money in to the account `deposit = Deposit.new(2000)`. Add the details to your account `account.add(deposit.details)`
+3. Withdraw money from the account `withdraw = Withdraw.new(500)`. Add the details to your account `account.add(withdraw.details)`
 4. Create a new statement, remember to pass in your account `statement = Statement.new(account)`
 5. View the account statement `puts statement.view`
 
