@@ -1,5 +1,8 @@
+require 'formatting'
+
 # Account class
 class Account
+  include Formatting
   attr_reader :history
 
   def initialize
@@ -17,10 +20,6 @@ class Account
   end
 
   private
-
-  def decimals(amount)
-    format('%.2f', amount)
-  end
 
   def credit_balance(transaction)
     @balance += transaction[:credit].to_i
