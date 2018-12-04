@@ -1,4 +1,4 @@
-require 'formatting'
+require './lib/formatting.rb'
 
 # Account class
 class Account

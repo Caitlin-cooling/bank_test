@@ -1,5 +1,3 @@
-require 'formatting'
-
 # Deposit class
 class Deposit
   include Formatting

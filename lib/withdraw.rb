@@ -1,5 +1,3 @@
-require 'formatting'
-
 # Withdraw class
 class Withdraw
   include Formatting
