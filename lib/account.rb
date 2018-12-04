@@ -16,13 +16,13 @@ class Account
   end
 
   private
+
   def update_balance
     if @transaction.deposit?
       @balance += @transaction.credit.to_i
-      @transaction.balance = @balance
     else
       @balance -= @transaction.debit.to_i
-      @transaction.balance = @balance
     end
+    @transaction.balance = @balance
   end
 end

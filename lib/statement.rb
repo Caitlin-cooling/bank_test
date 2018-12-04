@@ -9,11 +9,11 @@ class Statement
   def view
     text = "Date || Credit || Debit || Balance\n"
     @transactions.reverse_each do |transaction|
-      if transaction.deposit?
-       text += format_deposit(transaction)
-      else
-       text += format_withdraw(transaction)
-      end
+      text += if transaction.deposit?
+                format_deposit(transaction)
+              else
+                format_withdraw(transaction)
+              end
     end
     text
   end
@@ -29,5 +29,4 @@ class Statement
     "#{transaction.debit} || " \
     "#{decimals(transaction.balance)}\n"
   end
-
 end
