@@ -1,3 +1,4 @@
+# Module to handle formatting of numbers and time
 module Formatting
   def decimals(amount)
     format('%.2f', amount)

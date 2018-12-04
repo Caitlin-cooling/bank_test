@@ -11,11 +11,11 @@ class Account
   end
 
   def add(transaction)
-    if transaction[:credit]
-      transaction[:balance] = "#{decimals(credit_balance(transaction))}"
-    else
-      transaction[:balance] = "#{decimals(debit_balance(transaction))}"
-    end
+    transaction[:balance] = if transaction[:credit]
+                              decimals(credit_balance(transaction)).to_s
+                            else
+                              decimals(debit_balance(transaction)).to_s
+                            end
     @history << transaction
   end
 

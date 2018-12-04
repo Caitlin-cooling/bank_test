@@ -7,6 +7,6 @@ class Withdraw
 
   def initialize(amount)
     @amount = amount
-    @details = {date: time, debit: decimals(amount) }
+    @details = { date: time, debit: decimals(amount) }
   end
 end

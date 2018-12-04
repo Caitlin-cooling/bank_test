@@ -7,6 +7,6 @@ class Deposit
 
   def initialize(amount)
     @amount = amount
-    @details = {date: time, credit: decimals(amount) }
+    @details = { date: time, credit: decimals(amount) }
   end
 end
