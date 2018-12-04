@@ -1,7 +1,11 @@
 require 'account'
 require 'statement'
+require 'withdraw'
+require 'deposit'
 
 describe 'Check account information' do
+  let(:withdraw) { Withdraw.new(500) }
+  let(:deposit) { Deposit.new(2000) }
   let(:account) { Account.new }
   let(:statement) { Statement.new(account) }
 
@@ -15,13 +19,13 @@ describe 'Check account information' do
   end
 
   it 'statement shows that a user deposited money' do
-    account.deposit(1000.00)
-    expect(statement.view).to eq "Date || Credit || Debit || Balance\n10/01/2012 || 1000.00 ||  || 1000.00\n"
+    account.add(deposit.details)
+    expect(statement.view).to eq "Date || Credit || Debit || Balance\n10/01/2012 || 2000.00 ||  || 2000.00\n"
   end
 
   it 'statement shows that a user withdrew money' do
-    account.deposit(2000.00)
-    account.withdraw(500.00)
+    account.add(deposit.details)
+    account.add(withdraw.details)
     expect(statement.view).to eq "Date || Credit || Debit || Balance\n10/01/2012 ||  || 500.00 || 1500.00\n10/01/2012 || 2000.00 ||  || 2000.00\n"
   end
 end
